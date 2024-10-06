@@ -1,0 +1,33 @@
+{% extends 'emenu/layout.html' %}
+{% block title %}Menu List{% endblock %}
+
+
+
+{% block content %}
+<!-- Why Us Section -->
+<section id="why-us" class="why-us section">
+
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Vendors</h2>
+          <div><span>List of</span> <span class="description-title">Our Vendors</span></div>
+        </div><!-- End Section Title -->
+  <div class="container">
+    <div class="row gy-4">
+      {% for vendor in vendors %}
+      <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+        <div class="card-item">
+          <span>{{ vendor.name }}</span>
+          <h4><a href="{% url 'emenu:menu_detail' vendor.id %}" class="stretched-link">{{ vendor.address}}</a></h4>
+          <p>{{ vendor.description }}</p>
+        </div>
+      </div><!-- Card Item -->
+      {% empty %}
+        <p>No vendors available</p>
+      {% endfor %}
+    </div>
+    <div class="py-4">{% include 'emenu/pagination.html' with page_obj=vendors %}</div>
+  </div>
+
+</section><!-- /Why Us Section -->
+{% endblock %}
