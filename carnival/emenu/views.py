@@ -18,7 +18,7 @@ def menu_list(request):
     :return: A rendered HTML page with the list of vendors.
     """
 
-    vendors_list = Vendor.objects.order_by('created_at')
+    vendors_list = Vendor.objects.order_by('name')
     page_number = request.GET.get('page')
     paginator = Paginator(vendors_list, 8)
     try:
