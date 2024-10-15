@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Vendor, Menu
+from .models import Gallery, Vendor, Menu
 
 # Register your models here.
 class MenuInline(admin.StackedInline):
@@ -11,5 +11,4 @@ class VendorAdmin(admin.ModelAdmin):
 
     inlines = [MenuInline]
 
-
-
+admin.site.register(Gallery)

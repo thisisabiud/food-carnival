@@ -18,7 +18,7 @@
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card-item">
           <span>{{ vendor.name }}</span>
-          <h4><a href="{% url 'emenu:menu_detail' vendor.id %}" class="stretched-link">{{ vendor.address}}</a></h4>
+          <h4><a href="{% url 'emenu:vendor-detail' vendor.id %}" class="stretched-link">{{ vendor.address}}</a></h4>
           <p>{{ vendor.description }}</p>
         </div>
       </div><!-- Card Item -->

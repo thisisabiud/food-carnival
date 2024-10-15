@@ -1669,3 +1669,46 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+.custom-carousel {
+  position: relative;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.custom-carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.custom-carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.custom-carousel img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.custom-carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+}
+
+.custom-carousel-control.prev {
+  left: 10px;
+}
+
+.custom-carousel-control.next {
+  right: 10px;
+}

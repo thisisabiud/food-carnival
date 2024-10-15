@@ -1,0 +1,50 @@
+{% extends 'emenu/layout.html' %}
+{% block title %}Gallery{% endblock %}
+{% block css %}
+<style>
+    .card {
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+    
+    .card:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+    </style>
+    
+{% endblock %}
+
+
+{% block content %}
+<section>
+    <div class="row justify-content-center g-4">
+        {% for photo in photos %}
+        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 d-flex justify-content-center">
+          <div class="card m-3 shadow-lg" style="width: 100%; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <img src="{{ photo.photo.url }}" class="card-img-top" alt="{{ photo.description }}" style="object-fit: cover; height: 200px;">
+            <div class="card-body">
+              {% if photo.description %}
+              <p class="card-text">{{ photo.description }}</p>
+              {% endif %}
+              <p class="card-text text-secondary">
+                <small class="text-muted">Uploaded at {{ photo.uploaded_at }}</small>
+              </p>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      card.style.transform = 'translateY(-10px) scale(1.05)';
+      card.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.3)';
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = 'translateY(0) scale(1)';
+      card.style.boxShadow = '0 4px 8px rgba(0, 0, 0, 0.1)';
+    });
+  });
+</script>
+{% endblock %}

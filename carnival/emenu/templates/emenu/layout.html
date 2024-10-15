@@ -16,7 +16,9 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href={% static 'emenu/assets/vendor/bootstrap/css/bootstrap.min.css' %} rel="stylesheet">
@@ -27,6 +29,7 @@
 
   <!-- Main CSS File -->
   <link href={% static 'emenu/assets/css/main.css' %} rel="stylesheet">
+  {% block css %}{% endblock %}
 
 </head>
 
@@ -40,14 +43,16 @@
           <i class="bi bi-phone d-flex align-items-center d-none d-lg-block"><span>+255 22 277 1443</span></i>
           <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>Mon-Sat: 8AM - 5PM</span></i>
         </div>
-        <!-- <a href="#book-a-table" class="cta-btn">Book a table</a> -->
+          <div class="col-md-4">
+            <input type="text" id="search-input" class="form-control" placeholder="Search vendors...">
+            <ul id="search-results" class="list-group"></ul>
+          </div>
       </div>
     </div><!-- End Top Bar -->
-
     <div class="branding d-flex align-items-cente">
 
       <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="{% url 'emenu:menu_list' %}" class="logo d-flex align-items-center">
+        <a href="{% url 'emenu:vendors-list' %}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <img src="{% static 'emenu/assets/img/favicon.png' %}" alt="">
           <h1 class="sitename">Food Carnival</h1>
@@ -75,9 +80,11 @@
           <img src={% static 'emenu/assets/img/hero-carousel/hero-carousel-1.jpg' %} alt="">
           <div class="carousel-container">
             <h2><span>Food Carnival</span> - Taste the World</h2>
-            <p>Join us for a culinary journey around the world! Enjoy a variety of dishes from different countries and cultures, all in one place. Meet new people, try new foods, and make unforgettable memories.</p>
+            <p>Join us for a culinary journey around the world! Enjoy a variety of dishes from different countries and
+              cultures, all in one place. Meet new people, try new foods, and make unforgettable memories.</p>
             <div>
-              <a href="#why-us" class="btn-get-started">Our Vendors</a>
+              <a href="{% url 'emenu:gallery' %}" class="btn-get-started">Gallery</a>
+              <a href="{% url 'emenu:vendors-list' %}" class="btn-get-started">Our Vendors</a>
             </div>
           </div>
         </div><!-- End Carousel Item -->
@@ -86,9 +93,11 @@
           <img src={% static 'emenu/assets/img/hero-carousel/hero-carousel-2.jpg' %} alt="">
           <div class="carousel-container">
             <h2>Experience the Flavors</h2>
-            <p>Experience the authentic flavors of different cuisines from around the world. Our chefs have carefully crafted each dish to transport your taste buds on a culinary journey.</p>
+            <p>Experience the authentic flavors of different cuisines from around the world. Our chefs have carefully
+              crafted each dish to transport your taste buds on a culinary journey.</p>
             <div>
-              <a href="#why-us" class="btn-get-started">Our Vendors</a>
+              <a href="{% url 'emenu:gallery' %}" class="btn-get-started">Gallery</a>
+              <a href="{% url 'emenu:vendors-list' %}" class="btn-get-started">Our Vendors</a>
             </div>
           </div>
         </div><!-- End Carousel Item -->
@@ -97,9 +106,11 @@
           <img src={% static 'emenu/assets/img/hero-carousel/hero-carousel-3.jpg' %} alt="">
           <div class="carousel-container">
             <h2>Join the Celebration</h2>
-            <p>Join us for a fun-filled day of food, music, and celebration! Meet new people, make new friends, and enjoy the festive atmosphere.</p>
+            <p>Join us for a fun-filled day of food, music, and celebration! Meet new people, make new friends, and
+              enjoy the festive atmosphere.</p>
             <div>
-              <a href="#why-us" class="btn-get-started">Our Vendors</a>
+              <a href="{% url 'emenu:gallery' %}" class="btn-get-started">Gallery</a>
+              <a href="{% url 'emenu:vendors-list' %}" class="btn-get-started">Our Vendors</a>
             </div>
           </div>
         </div><!-- End Carousel Item -->
@@ -119,89 +130,149 @@
     </section><!-- /Hero Section -->
 
 
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 
-</main>
 
-<footer id="footer" class="footer dark-background">
+            <!-- PARTNER START -->
+            <section class="section-two bg-light">
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-12 p-0">
+                          <div id="sponsors-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+                              <div class="carousel-inner">
+                                  <div class="carousel-item active">
+                                      <div class="row align-items-center">
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-1.png' %}" class="mx-auto d-block img-fluid" alt="Partner 1">
+                                          </div>
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-2.png' %}" class="mx-auto d-block img-fluid" alt="Partner 2">
+                                          </div>
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-3.png' %}" class="mx-auto d-block img-fluid" alt="Partner 3">
+                                          </div>
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-4.png' %}" class="mx-auto d-block img-fluid" alt="Partner 4">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="carousel-item">
+                                      <div class="row align-items-center">
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-2.png' %}" class="mx-auto d-block img-fluid" alt="Partner 2">
+                                          </div>
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-2.png' %}" class="mx-auto d-block img-fluid" alt="Partner 2">
+                                          </div>
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-3.png' %}" class="mx-auto d-block img-fluid" alt="Partner 3">
+                                          </div>
+                                          <div class="col-md-3 col-sm-6 col-6">
+                                              <img src="{% static 'emenu/assets/img/client/partner-4.png' %}" class="mx-auto d-block img-fluid" alt="Partner 4">
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <!-- Add more carousel items as needed -->
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </section>
+          
+          <!-- PARTNER END -->
 
-  <div class="container">
-    <div class="row gy-3">
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-geo-alt icon"></i>
-        <div class="address">
-          <h4>Address</h4>
-          <p>Plot 171, Mikocheni 'B' P.O.Box 35146, Dar es Salaam, Tanzania</p>
-          <p></p>
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>Plot 171, Mikocheni 'B' P.O.Box 35146, Dar es Salaam, Tanzania</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+255 22 277 1443</span><br>
+              <strong>Email:</strong> <span>marchtanzania@gmail.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>8AM - 5PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
         </div>
 
       </div>
-
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-telephone icon"></i>
-        <div>
-          <h4>Contact</h4>
-          <p>
-            <strong>Phone:</strong> <span>+255 22 277 1443</span><br>
-            <strong>Email:</strong> <span>marchtanzania@gmail.com</span><br>
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-clock icon"></i>
-        <div>
-          <h4>Opening Hours</h4>
-          <p>
-            <strong>Mon-Sat:</strong> <span>8AM - 5PM</span><br>
-            <strong>Sunday</strong>: <span>Closed</span>
-          </p>
-        </div>
-      </div>
-
-      <div class="col-lg-3 col-md-6">
-        <h4>Follow Us</h4>
-        <div class="social-links d-flex">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-
     </div>
-  </div>
 
-  <div class="container copyright text-center mt-4">
-    <p>© <span>Copyright</span> <strong class="px-1 sitename">Food Carnival</strong> <span>All Rights Reserved</span></p>
-    <div class="credits">
-      <!-- All the links in the footer should remain intact. -->
-      <!-- You can delete the links only if you've purchased the pro version. -->
-      <!-- Licensing information: https://bootstrapmade.com/license/ -->
-      <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-      Designed by <a href="https://bootstrapmade.com/">Innovative team</a>
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Food Carnival</strong> <span>All Rights Reserved</span>
+      </p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">Innovative team</a>
+      </div>
     </div>
-  </div>
 
-</footer>
+  </footer>
 
-<!-- Scroll Top -->
-<a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
-<!-- Preloader -->
-<div id="preloader"></div>
+  <!-- Preloader -->
+  <div id="preloader"></div>
 
-<!-- Vendor JS Files -->
-<script src="{% static 'emenu/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'emenu/assets/vendor/php-email-form/validate.js' %}"></script>
-<script src="{% static 'emenu/assets/vendor/aos/aos.js' %}"></script>
-<script src="{% static 'emenu/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
-<script src="{% static 'emenu/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
-<script src="{% static 'emenu/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
-<script src="{% static 'emenu/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <!-- Vendor JS Files -->
+  <script src="{% static 'emenu/assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'emenu/assets/vendor/php-email-form/validate.js' %}"></script>
+  <script src="{% static 'emenu/assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'emenu/assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'emenu/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+  <script src="{% static 'emenu/assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'emenu/assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
 
-<!-- Main JS File -->
-<script src="{% static 'emenu/assets/js/main.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.0/jquery.ajaxy.min.js"
+    integrity="sha512-4bVPoPD/7vUvnhZ8+WkXyxdFmLX3QKxuF3R1l/7S3J7u4FqH6HJ1aT2qoAa2NfA6YVvJ3OZw3mH6nB9n3Xw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+  <!-- Main JS File -->
+  <script src="{% static 'emenu/assets/js/site.js' %}"></script>
+  <script src="{% static 'emenu/assets/js/main.js' %}"></script>
+
 
 </body>
 

@@ -1,6 +1,10 @@
-import io
+from django.http import JsonResponse
 from django.shortcuts import get_object_or_404, render
-from emenu.models import Menu, Vendor
+from rest_framework.decorators import api_view
+from django.db.models import Q
+from rest_framework.response import Response
+from emenu.models import Gallery, Menu, Vendor
+from emenu.serializers import VendorSerializer
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 
 
@@ -35,6 +39,28 @@ def menu(request, id):
     """
     vendor = get_object_or_404(Vendor, pk=id)
     menu_items = Menu.objects.filter(vendor=vendor)
-    context = {'vendor': vendor, 'menu_items': menu_items}
+    categories = set(menu_items.values_list('category', flat=True))
+    context = {'vendor': vendor, 'menu_items': menu_items, 'categories': categories}
     return render(request, 'emenu/menu.html', context)
 
+@api_view(['GET'])
+def vendors_search(request):
+    """
+    Searches for vendors by name.
+
+    :param request: The current HTTP request.
+    :return: A list of vendors matching the search query.
+    """
+
+    query = request.GET.get('query', '')
+    vendors = Vendor.objects.filter(
+        Q(name__icontains=query)
+    ).order_by('name')[:3]
+
+    serializer = VendorSerializer(vendors, many=True)
+    return Response(serializer.data)
+
+def gallery(request):
+    photos = Gallery.objects.all().order_by('-uploaded_at')
+    context = {'photos': photos}
+    return render(request, 'emenu/gallery.html', context)
