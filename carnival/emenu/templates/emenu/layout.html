@@ -14,10 +14,7 @@
   <link href={% static 'emenu/assets/img/apple-touch-icon.png' %} rel="apple-touch-icon">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -34,8 +31,7 @@
 </head>
 
 <body class="index-page">
-
-  <header id="header" class="header fixed-top">
+<header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-end justify-content-md-between">
@@ -43,28 +39,27 @@
           <i class="bi bi-phone d-flex align-items-center d-none d-lg-block"><span>+255 786 469 350</span></i>
           <i class="bi bi-clock ms-4 d-none d-lg-flex align-items-center"><span>19th - 20th October</span></i>
         </div>
-          <div class="col-md-4">
-            <input type="text" id="search-input" class="form-control" placeholder="Search vendors...">
-            <ul id="search-results" class="list-group"></ul>
-          </div>
+        <div class="col-md-4">
+          <input type="text" id="search-input" class="form-control" placeholder="Search vendors...">
+          <ul id="search-results" class="list-group"></ul>
+        </div>
       </div>
     </div><!-- End Top Bar -->
-    <div class="branding d-flex align-items-cente">
-
+    <div class="branding d-flex align-items-center">
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="{% url 'emenu:vendors-list' %}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <img src="{% static 'emenu/assets/img/favicon.png' %}" alt="">
           <h1 class="sitename">Food Carnival</h1>
         </a>
-        <nav id="navmenu" class="navmenu d-none">
+        <nav id="navmenu" class="navmenu">
           <ul>
+            <li><a href="{% url 'emenu:vendors-list' %}">Home</a></li>
+            <li><a href="{% url 'emenu:gallery' %}">Gallery</a></li>
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
       </div>
-
     </div>
 
   </header>
@@ -143,32 +138,34 @@
                                   <div class="carousel-item active">
                                       <div class="row align-items-center">
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-1.png' %}" class="mx-auto d-block img-fluid" alt="Partner 1">
+                                              <img src="{% static 'emenu/assets/img/client/hugo-domingo.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 1">
                                           </div>
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-2.png' %}" class="mx-auto d-block img-fluid" alt="Partner 2">
+                                              <img src="{% static 'emenu/assets/img/client/aqua.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
                                           </div>
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-3.png' %}" class="mx-auto d-block img-fluid" alt="Partner 3">
+                                              <img src="{% static 'emenu/assets/img/client/africafe.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
                                           </div>
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-4.png' %}" class="mx-auto d-block img-fluid" alt="Partner 4">
+                                              <img src="{% static 'emenu/assets/img/client/coca.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
                                           </div>
+
+
                                       </div>
                                   </div>
                                   <div class="carousel-item">
                                       <div class="row align-items-center">
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-2.png' %}" class="mx-auto d-block img-fluid" alt="Partner 2">
+                                              <img src="{% static 'emenu/assets/img/client/mpesa.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
                                           </div>
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-2.png' %}" class="mx-auto d-block img-fluid" alt="Partner 2">
+                                              <img src="{% static 'emenu/assets/img/client/villa-maua.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
                                           </div>
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-3.png' %}" class="mx-auto d-block img-fluid" alt="Partner 3">
+                                              <img src="{% static 'emenu/assets/img/client/infocus.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
                                           </div>
                                           <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/partner-4.png' %}" class="mx-auto d-block img-fluid" alt="Partner 4">
+                                              <img src="{% static 'emenu/assets/img/client/partner-4.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
                                           </div>
                                       </div>
                                   </div>
