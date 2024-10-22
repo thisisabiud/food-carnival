@@ -7,7 +7,7 @@ class MenuInline(admin.StackedInline):
     extra = 0
 @admin.register(Vendor)
 class VendorAdmin(admin.ModelAdmin):
-    list_display = ('name', 'address', 'email', 'phone', 'website', 'logo')
+    list_display = ('name', 'phone', 'website', 'logo')
 
     inlines = [MenuInline]
 

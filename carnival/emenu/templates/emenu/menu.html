@@ -3,44 +3,48 @@
 {% block title %}Menu{% endblock %}
 
 {% block content %}
-    <!-- Menu Section -->
-    <section id="menu" class="menu section">
+<!-- Menu Section -->
+<section id="menu" class="menu section">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>{{ vendor.name}}</h2>
-          <div><span>Check Our Tasty</span> <span class="description-title">Menu</span></div>
-        </div><!-- End Section Title -->
-  
-        <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
-  
-          <div class="row" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-lg-12 d-flex justify-content-center">
-              <ul class="menu-filters isotope-filters">
-                <li data-filter="*" class="filter-active">All</li>
-                {% for category in categories %}
-                <li data-filter=".filter-{{ category }}">{{ category }}</li>
-                {% endfor %}
-              </ul>
-            </div>
-          </div>
-  
-          <div id="menu-items" class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
-  
-            {% for item in menu_items %}
-              <div class="col-lg-6 menu-item isotope-item filter-{{ item.category}} {{ item.category}}">
-                <div class="menu-content">
-                  <a href="#">{{ item.name }}</a><span>{{ item.price }}</span>
-                </div>
-                <div class="menu-ingredients">
-                  {{ item.description }}
-                </div>
-              </div><!-- Menu Item -->
-            {% endfor %}
-  
-          </div><!-- Menu Container -->
-  
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>{{ vendor.name}}</h2>
+    <div><span>Check Our Tasty</span> <span class="description-title">Menu</span></div>
+  </div><!-- End Section Title -->
+
+  <div class="container isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+
+    <div class="row" data-aos="fade-up" data-aos-delay="100">
+      <div class="col-lg-12 d-flex justify-content-center">
+        <ul class="menu-filters isotope-filters">
+          <li data-filter="*" class="filter-active">All</li>
+          {% for category in categories %}
+          <li data-filter=".filter-{{ category }}">{{ category }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+
+    <div id="menu-items" class="row isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+      {% for item in menu_items %}
+      <div class="col-lg-6 menu-item isotope-item filter-{{ item.category}} {{ item.category}}">
+        <div class="menu-content">
+          {% if item.image %}
+          <a href="#"><img src="{{ item.image.url }}" class="img-fluid" alt="{{ item.name }}"></a>
+          {% else %}
+          <a href="#">{{ item.name }}</a><span>{{ item.price }}</span>
+          {% endif %}
         </div>
-  
-      </section><!-- /Menu Section -->
+        <div class="menu-ingredients">
+          {{ item.description }}
+        </div>
+      </div><!-- Menu Item -->
+      {% endfor %}
+
+    </div><!-- Menu Container -->
+
+  </div>
+
+</section><!-- /Menu Section -->
 {% endblock %}

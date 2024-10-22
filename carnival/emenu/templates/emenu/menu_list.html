@@ -7,23 +7,24 @@
 <!-- Why Us Section -->
 <section id="vendors" class="why-us section">
 
-        <!-- Section Title -->
-        <div class="container section-title" data-aos="fade-up">
-          <h2>Vendors</h2>
-          <div><span>List of</span> <span class="description-title">Our Vendors</span></div>
-        </div><!-- End Section Title -->
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Vendors</h2>
+    <div><span>List of</span> <span class="description-title">Our Vendors</span></div>
+  </div><!-- End Section Title -->
   <div class="container">
     <div class="row gy-4">
       {% for vendor in vendors %}
       <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
         <div class="card-item">
           <span>{{ vendor.name }}</span>
-          <h4><a href="{% url 'emenu:vendor-detail' vendor.id %}" class="stretched-link">{{ vendor.address}}</a></h4>
-          <p>{{ vendor.description }}</p>
+          <h4><a href="{% url 'emenu:vendor-detail' vendor.id %}" class="stretched-link">
+            {{ vendor.phone|default_if_none:"&nbsp;" }}</a></h4>
+          <p>{{ vendor.description|default_if_none:"&nbsp;" }}</p>
         </div>
       </div><!-- Card Item -->
       {% empty %}
-        <p>No vendors available</p>
+      <p>No vendors available</p>
       {% endfor %}
     </div>
     <div class="py-4">{% include 'emenu/pagination.html' with page_obj=vendors %}</div>

@@ -18,7 +18,7 @@ def menu_list(request):
 
     vendors_list = Vendor.objects.order_by('name')
     page_number = request.GET.get('page')
-    paginator = Paginator(vendors_list, 8)
+    paginator = Paginator(vendors_list, 9)
     try:
         vendors = paginator.page(page_number)
     except PageNotAnInteger:

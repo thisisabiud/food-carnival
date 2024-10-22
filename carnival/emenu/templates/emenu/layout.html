@@ -14,7 +14,8 @@
   <link href={% static 'emenu/assets/img/apple-touch-icon.png' %} rel="apple-touch-icon">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Satisfy:wght@400&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -31,7 +32,7 @@
 </head>
 
 <body class="index-page">
-<header id="header" class="header fixed-top">
+  <header id="header" class="header fixed-top">
 
     <div class="topbar d-flex align-items-center">
       <div class="container d-flex justify-content-end justify-content-md-between">
@@ -49,8 +50,7 @@
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <a href="{% url 'emenu:vendors-list' %}" class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
-          <img src="{% static 'emenu/assets/img/favicon.png' %}" alt="">
-          <h1 class="sitename">Food Carnival</h1>
+          <img class="sitename" src="{% static 'emenu/assets/img/client/fc.png' %}" alt="">
         </a>
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -128,104 +128,193 @@
     {% block content %}{% endblock %}
 
 
-            <!-- PARTNER START -->
-            <section class="section-two bg-light">
-              <div class="container">
-                  <div class="row">
-                      <div class="col-lg-12 p-0">
-                          <div id="sponsors-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
-                              <div class="carousel-inner">
-                                  <div class="carousel-item active">
-                                      <div class="row align-items-center">
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/hugo-domingo.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 1">
-                                          </div>
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/aqua.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                          </div>
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/africafe.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
-                                          </div>
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/coca.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
-                                          </div>
-
-
-                                      </div>
-                                  </div>
-                                  <div class="carousel-item">
-                                      <div class="row align-items-center">
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/mpesa.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                          </div>
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/villa.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                          </div>
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/infocus.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
-                                          </div>
-                                          <div class="col-md-3 col-sm-6 col-6">
-                                              <img src="{% static 'emenu/assets/img/client/bevco.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
-                                          </div>
-                                      </div>
-                                  </div>
-                                  <div class="carousel-item">
-                                    <div class="row align-items-center">
-                                        <div class="col-md-3 col-sm-6 col-6">
-                                            <img src="{% static 'emenu/assets/img/client/str8.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                        </div>
-                                        <div class="col-md-3 col-sm-6 col-6">
-                                            <img src="{% static 'emenu/assets/img/client/361.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                        </div>
-                                        <div class="col-md-3 col-sm-6 col-6">
-                                            <img src="{% static 'emenu/assets/img/client/event.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
-                                        </div>
-                                        <div class="col-md-3 col-sm-6 col-6">
-                                            <img src="{% static 'emenu/assets/img/client/hugo.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="carousel-item">
-                                  <div class="row align-items-center">
-                                      <div class="col-md-3 col-sm-6 col-6">
-                                          <img src="{% static 'emenu/assets/img/client/rev.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                      </div>
-                                      <div class="col-md-3 col-sm-6 col-6">
-                                          <img src="{% static 'emenu/assets/img/client/kiwango.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                      </div>
-                                      <div class="col-md-3 col-sm-6 col-6">
-                                          <img src="{% static 'emenu/assets/img/client/rhyog.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
-                                      </div>
-                                      <div class="col-md-3 col-sm-6 col-6">
-                                          <img src="{% static 'emenu/assets/img/client/jb.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="carousel-item">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3 col-sm-6 col-6">
-                                        <img src="{% static 'emenu/assets/img/client/kk.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-6">
-                                        <img src="{% static 'emenu/assets/img/client/mjini.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-6">
-                                        <img src="{% static 'emenu/assets/img/client/kili.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
-                                    </div>
-                                    <div class="col-md-3 col-sm-6 col-6">
-                                        <img src="{% static 'emenu/assets/img/client/hugo.png' %}" class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
-                                    </div>
-                                </div>
-                            </div>
-                                  <!-- Add more carousel items as needed -->
-                              </div>
-                          </div>
-                      </div>
+    <!-- PARTNER START -->
+    <section class="section-two bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 p-0">
+            <div id="sponsors-carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/hugo-domingo.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 1">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/aqua.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/africafe.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/coca.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/mpesa.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/villa.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
                   </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/infocus.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/bevco.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/str8.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/361.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/event.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/hugo.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/rev.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/kiwango.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/rhyog.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/jb.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/kk.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/mjini.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/hugo.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/kili.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/adver.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/allyb.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/calebinto.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/carlitos.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/carpo.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/city.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/dstv.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/allyb.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/em.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/fc.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                  </div>
+
+                </div>
+
+                <div class="carousel-item">
+                  <div class="row align-items-center">
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/istanbul.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/luna.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/mchawi.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 3">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/mk.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 4">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/tono.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                    <div class="col-md-2 col-sm-4 col-6">
+                      <img src="{% static 'emenu/assets/img/client/vant.png' %}"
+                        class="mx-auto d-block img-fluid client-logo" alt="Partner 2">
+                    </div>
+                  </div>
+
+                </div>
               </div>
-          </section>
-          
-          <!-- PARTNER END -->
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- PARTNER END -->
 
   </main>
 
